@@ -1,0 +1,131 @@
+body {
+  background: #f4f6fb;
+  font-family: 'Segoe UI', Sans-serif;
+  min-height: 100vh;
+  margin: 0;
+}
+.container {
+  max-width: 500px;
+  margin: 50px auto 0 auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(44, 62, 80, 0.07);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+}
+h1 {
+  color: #444;
+  font-size: 2rem;
+  margin-bottom: 26px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+form label {
+  display: block;
+  margin-top: 14px;
+  margin-bottom: 4px;
+  font-weight: 500;
+  color: #333;
+}
+input[type=text], input[type=email], input[type=tel], input[type=date], select, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.3px solid #b8c2cc;
+  border-radius: 6px;
+  background: #f8fafc;
+  font-size: 1rem;
+  transition: border .19s;
+  margin-bottom: 6px;
+}
+input:focus, select:focus, textarea:focus {
+  border: 1.3px solid #1976d2;
+  outline: none;
+  background: #fff;
+}
+.radio-group {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 10px;
+}
+.radio-group label {
+  font-weight: 400;
+  color: #333;
+  margin-right: 10px;
+  margin-bottom: 0;
+}
+input[type="radio"] {
+  margin-right: 5px;
+}
+button {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 12px 0;
+  width: 100%;
+  font-size: 1.13rem;
+  font-weight: bold;
+  border-radius: 8px;
+  margin-top: 16px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+button:hover, button:focus {
+  background: #1253a5;
+}
+#formMessage {
+  margin-top: 20px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 1.15rem;
+  display: none;
+}
+#formMessage.success {
+  background: #e6f9ea;
+  color: #0c7243;
+  border: 1.5px solid #42c87a;
+  display: block;
+}
+#formMessage.error {
+  background: #ffeaea;
+  color: #d32f2f;
+  border: 1.5px solid #e57373;
+  display: block;
+}
+/* PHP Display Styling */
+.result-output {
+  max-width: 500px;
+  margin: 50px auto 0 auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(44, 62, 80, 0.07);
+  padding: 32px 28px;
+}
+.result-output h1 {
+  text-align: center;
+  color: #1976d2;
+  font-size: 1.6rem;
+  margin-bottom: 14px;
+}
+.result-output table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+.result-output th, .result-output td {
+  padding: 8px 4px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+.result-output th {
+  color: #1976d2;
+  width: 35%;
+  font-weight: 500;
+}
+@media (max-width:600px) {
+  .container, .result-output {
+    padding: 12px 3vw;
+    margin: 24px 0 0 0;
+  }
+  h1 {font-size: 1.15rem;}
+}
