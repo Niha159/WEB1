@@ -42,6 +42,7 @@ $(document).ready(function(){
       e.preventDefault();
     } else {
       $('#formMessage').removeClass().addClass('success').text('Form submitted, please wait...').show();
+      // allow normal POST (no e.preventDefault()) so submit.php handles it and shows the result page
     }
   });
 });
