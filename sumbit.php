@@ -1,5 +1,14 @@
 <?php
 function safe($str) { return htmlspecialchars(trim($str)); }
+
+// Only accept POST
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    // If someone navigates via GET, show a simple message (optional)
+    http_response_code(405);
+    echo "Method Not Allowed. Use POST to submit the form.";
+    exit;
+}
+
 $name = safe($_POST['name'] ?? '');
 $email = safe($_POST['email'] ?? '');
 $phone = safe($_POST['phone'] ?? '');
@@ -7,6 +16,27 @@ $course = safe($_POST['course'] ?? '');
 $gender = safe($_POST['gender'] ?? '');
 $dob = safe($_POST['dob'] ?? '');
 $address = safe($_POST['address'] ?? '');
+
+// basic validation (server-side)
+$errors = [];
+if (!$name) $errors[] = 'Name required';
+if (!$email || !filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = 'Valid email required';
+if (!$phone) $errors[] = 'Phone required';
+if (!$course) $errors[] = 'Course required';
+if (!$gender) $errors[] = 'Gender required';
+if (!$dob) $errors[] = 'Date of birth required';
+if (!$address) $errors[] = 'Address required';
+
+if (!empty($errors)) {
+    http_response_code(422);
+    // show errors; you can format this nicely in HTML
+    echo "<h2>Submission errors:</h2><ul>";
+    foreach ($errors as $err) {
+        echo "<li>" . htmlspecialchars($err) . "</li>";
+    }
+    echo "</ul><p><a href='index.html'>Back</a></p>";
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
